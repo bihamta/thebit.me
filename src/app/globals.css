@@ -2,6 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Smooth transition for all letters */
+._span_siw6m_37 {
+  display: inline-block;
+  transition: transform 0.5s ease;
+  will-change: transform;
+  
+}
+
+/* Blue letters initially hidden (move up on hover) */
+._mint_siw6m_41 {
+  display: inline-block;
+  transform: translateY(100%); /* Start below */
+  transition: transform 0.5s ease;
+  color: #ADDFAD;
+}
+
+/* Move the top letters up */
+._link_siw6m_9:hover ._span_siw6m_37:not(._mint_siw6m_41) {
+  transform: translateY(-100%);
+}
+
+/* Bring the bottom letters up from below */
+._link_siw6m_9 > div {
+  /* Each <div> inside the link is now a clipping box */
+  position: relative;
+  overflow: hidden;
+}
+._link_siw6m_9:hover ._mint_siw6m_41 {
+  transform: translateY(0%);
+}
+._link_siw6m_9 > div > div {
+  /* position: absolute; */
+  /* color: red; */
+  inset: 0;
+}
+
+
 /* body {
   font-family: Arial, sans-serif;
   text-align: center;
